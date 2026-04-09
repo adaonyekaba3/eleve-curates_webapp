@@ -1,17 +1,15 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import { db } from "@/lib/db";
+import { sql } from "@/lib/db";
 
 export default async function PortalPage() {
   const { userId } = await auth();
   if (!userId) redirect("/sign-in");
 
-  const inquiries = await db.inquiry.findMany({
-    where: {
-      clerkUserId: userId,
-    },
-    orderBy: { createdAt: "desc" },
-  });
+  const inquiries = await sql`
+    SELECT * FROM inquiries WHERE email = ${userId}
+    ORDER BY created_at DESC
+  `;
 
   return (
     <main className="section-space editorial-container">
@@ -36,15 +34,15 @@ export default async function PortalPage() {
               key={inquiry.id}
               className="rounded-sm border border-black/10 bg-beige/25 p-6"
             >
-              <h2 className="font-serif text-3xl">{inquiry.eventType}</h2>
+              <h2 className="font-serif text-3xl">{inquiry.event_type}</h2>
               <p className="mt-2 text-sm text-muted">
-                {inquiry.eventLocation} | {inquiry.eventDate.toDateString()}
+                {inquiry.event_location} | {inquiry.event_date}
               </p>
               <p className="mt-2 text-sm text-muted">
-                Guest Count: {inquiry.estimatedGuestCount} | Budget:{" "}
-                {inquiry.budgetRange}
+                Guest Count: {inquiry.guest_count} | Budget:{" "}
+                {inquiry.budget_range}
               </p>
-              <p className="mt-4 text-sm text-muted">{inquiry.eventDescription}</p>
+              <p className="mt-4 text-sm text-muted">{inquiry.event_description}</p>
             </article>
           ))
         )}
