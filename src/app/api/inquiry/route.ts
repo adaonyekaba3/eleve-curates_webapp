@@ -46,8 +46,8 @@ export async function POST(request: Request) {
     // 2. Send email notification (non-blocking — do not fail the request)
     try {
       await resend.emails.send({
-        from: "Élevé Curates <onboarding@resend.dev>",
-        to: "adaobi@elevecurates.com",
+        from: "Élevé Curates <no-reply@elevevents.com>",
+        to: "eleve.events.ai@gmail.com",
         subject: "New Inquiry — Élevé Curates",
         html: `
           <div style="font-family: Georgia, serif; color: #1a1a1a; max-width: 600px; margin: 0 auto; padding: 24px;">
