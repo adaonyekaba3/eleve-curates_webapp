@@ -16,7 +16,7 @@ export function InquiryForm() {
     const formData = new FormData(event.currentTarget);
     const payload = Object.fromEntries(formData.entries());
 
-    const response = await fetch("/api/inquiries", {
+    const response = await fetch("/api/inquiry", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),

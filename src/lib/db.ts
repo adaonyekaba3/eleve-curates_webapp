@@ -1,13 +1,7 @@
-import { PrismaClient } from "@prisma/client";
+import { neon } from "@neondatabase/serverless";
 
-declare global {
-  var prisma: PrismaClient | undefined;
+if (!process.env.DATABASE_URL) {
+  throw new Error("DATABASE_URL environment variable is not set");
 }
 
-export const db =
-  global.prisma ||
-  new PrismaClient({
-    log: process.env.NODE_ENV === "development" ? ["warn", "error"] : ["error"],
-  });
-
-if (process.env.NODE_ENV !== "production") global.prisma = db;
+export const sql = neon(process.env.DATABASE_URL);
