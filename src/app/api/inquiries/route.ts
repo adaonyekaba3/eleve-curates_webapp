@@ -1,4 +1,4 @@
-import { currentUser } from "@clerk/nextjs/server";
+import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { inquirySchema } from "@/lib/validations/inquiry";
@@ -18,14 +18,12 @@ export async function POST(request: Request) {
       );
     }
 
-    const user = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
-      ? await currentUser()
-      : null;
+    const { userId } = await auth();
     const inquiry = await db.inquiry.create({
       data: {
         ...parsed.data,
         eventDate: new Date(parsed.data.eventDate),
-        clerkUserId: user?.id ?? null,
+        clerkUserId: userId ?? null,
         phoneNumber: parsed.data.phoneNumber || null,
         referralSource: parsed.data.referralSource || null,
       },

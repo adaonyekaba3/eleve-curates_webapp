@@ -27,34 +27,15 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const clerkPublishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-
-  const content = (
-    <html
-      lang="en"
-      className={`${sans.variable} ${serif.variable} scroll-smooth`}
-    >
-      <body className="font-sans">
-        <SiteHeader />
-        <div className="pt-20">{children}</div>
-        <SiteFooter />
-      </body>
-    </html>
-  );
-
-  if (!clerkPublishableKey) {
-    return content;
-  }
-
   return (
-    <ClerkProvider publishableKey={clerkPublishableKey}>
-      <html lang="en" className={`${sans.variable} ${serif.variable} scroll-smooth`}>
-        <body className="font-sans">
+    <html lang="en" className={`${sans.variable} ${serif.variable} scroll-smooth`}>
+      <body className="font-sans">
+        <ClerkProvider>
           <SiteHeader />
           <div className="pt-20">{children}</div>
           <SiteFooter />
-        </body>
-      </html>
-    </ClerkProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }

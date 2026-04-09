@@ -1,21 +1,14 @@
-import { currentUser } from "@clerk/nextjs/server";
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 
 export default async function PortalPage() {
-  if (!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY) {
-    redirect("/inquire");
-  }
-
-  const user = await currentUser();
-  const userId = user?.id;
+  const { userId } = await auth();
   if (!userId) redirect("/sign-in");
-
-  const email = user?.primaryEmailAddress?.emailAddress;
 
   const inquiries = await db.inquiry.findMany({
     where: {
-      OR: [{ clerkUserId: userId }, ...(email ? [{ email }] : [])],
+      clerkUserId: userId,
     },
     orderBy: { createdAt: "desc" },
   });

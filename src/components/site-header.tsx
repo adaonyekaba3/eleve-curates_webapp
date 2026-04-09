@@ -1,7 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import {
+  Show,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
 
 const links = [
@@ -35,25 +40,33 @@ export function SiteHeader() {
           ))}
           {clerkEnabled ? (
             <>
-              <SignedIn>
+              <Show when="signed-in">
                 <Link
                   href="/portal"
                   className="text-[11px] uppercase tracking-[0.26em] text-muted transition hover:text-ink"
                 >
                   Client Portal
                 </Link>
-                <UserButton afterSignOutUrl="/" />
-              </SignedIn>
-              <SignedOut>
+                <UserButton />
+              </Show>
+              <Show when="signed-out">
                 <SignInButton mode="modal">
                   <button
                     type="button"
                     className="rounded-full border border-gold px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-ink transition hover:bg-champagne"
                   >
-                    Login
+                    Sign In
                   </button>
                 </SignInButton>
-              </SignedOut>
+                <SignUpButton mode="modal">
+                  <button
+                    type="button"
+                    className="rounded-full border border-gold/60 px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-ink transition hover:bg-beige"
+                  >
+                    Sign Up
+                  </button>
+                </SignUpButton>
+              </Show>
             </>
           ) : (
             <span className="text-[11px] uppercase tracking-[0.26em] text-muted">
