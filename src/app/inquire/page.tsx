@@ -12,12 +12,25 @@ export default function InquirePage() {
         guide you toward a bespoke planning experience designed around your
         story, standards, and cultural sensibility.
       </p>
-      <Link
-        href="/start-journey"
-        className="mt-8 inline-block rounded-full bg-ink px-8 py-4 text-[11px] uppercase tracking-[0.24em] text-ivory transition hover:bg-black"
-      >
-        Start Your Journey
-      </Link>
+      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+        <Link
+          href="/start-journey"
+          className="inline-block rounded-full bg-ink px-8 py-4 text-center text-[11px] uppercase tracking-[0.24em] text-ivory transition hover:bg-black"
+        >
+          Start Your Journey
+        </Link>
+        <Link
+          href="/maison-eleve/intake"
+          className="inline-block rounded-full border border-gold/60 bg-transparent px-8 py-4 text-center text-[11px] uppercase tracking-[0.24em] text-ink transition hover:border-gold hover:bg-champagne/40"
+        >
+          Maison Élevé — Bespoke styling
+        </Link>
+      </div>
+      <p className="mt-8 max-w-xl text-sm text-muted">
+        For tailoring, aso-ebi, bridal looks, and wardrobe styling under our
+        Maison Élevé line, use the bespoke intake so our atelier team can
+        respond with the right next steps.
+      </p>
     </main>
   );
 }

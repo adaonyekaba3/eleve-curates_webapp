@@ -86,6 +86,12 @@ export default function Home() {
             >
               Start Your Journey
             </Link>
+            <Link
+              href="/maison-eleve/intake"
+              className="text-[10px] uppercase tracking-[0.28em] text-ivory/75 transition hover:text-ivory"
+            >
+              Maison Élevé — Bespoke styling &amp; tailoring
+            </Link>
           </div>
         </div>
       </section>
@@ -161,12 +167,20 @@ export default function Home() {
           We accept a limited number of clients to ensure each experience is
           thoughtfully executed.
         </p>
-        <Link
-          href="/start-journey"
-          className="mt-8 inline-block rounded-full bg-ink px-8 py-4 text-[11px] uppercase tracking-[0.24em] text-ivory transition hover:bg-black"
-        >
-          Start Your Journey
-        </Link>
+        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <Link
+            href="/start-journey"
+            className="inline-block rounded-full bg-ink px-8 py-4 text-[11px] uppercase tracking-[0.24em] text-ivory transition hover:bg-black"
+          >
+            Start Your Journey
+          </Link>
+          <Link
+            href="/maison-eleve/intake"
+            className="inline-block rounded-full border border-gold/50 px-8 py-4 text-[11px] uppercase tracking-[0.24em] text-ink transition hover:border-gold hover:bg-champagne/50"
+          >
+            Maison Élevé intake
+          </Link>
+        </div>
       </section>
     </main>
   );
