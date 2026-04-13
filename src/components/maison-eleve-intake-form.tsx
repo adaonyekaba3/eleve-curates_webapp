@@ -11,19 +11,19 @@ import {
 } from "@/lib/validations/maison-eleve-intake";
 
 const input =
-  "mt-2 w-full rounded-md border border-white/10 bg-black/35 px-4 py-3.5 text-[15px] leading-relaxed text-[#f5f0e8] shadow-inner shadow-black/20 placeholder:text-white/35 focus:border-gold/45 focus:outline-none focus:ring-1 focus:ring-gold/25";
+  "mt-2 w-full border border-black/15 bg-ivory px-4 py-3.5 text-[15px] leading-relaxed text-ink placeholder:text-muted/70 focus:border-gold/60 focus:outline-none focus:ring-1 focus:ring-gold/25";
 const label =
-  "block text-[10px] font-medium uppercase tracking-[0.26em] text-gold/95";
+  "block text-xs uppercase tracking-[0.2em] text-muted";
 const sectionTitle =
-  "font-serif text-xl tracking-tight text-[#f8f4ec] md:text-2xl";
+  "font-serif text-xl tracking-tight text-ink md:text-2xl";
 const sectionNum =
-  "mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-gold/35 text-[11px] font-medium text-gold";
+  "mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-gold/40 bg-ivory text-[11px] font-medium text-gold";
 const sectionWrap =
-  "rounded-lg border border-white/[0.08] bg-white/[0.03] p-6 md:p-8";
+  "rounded-sm border border-gold/30 bg-beige/30 p-6 md:p-8";
 const checkRow =
-  "flex cursor-pointer items-start gap-3 rounded-md border border-transparent px-1 py-2 transition hover:border-white/10 hover:bg-white/[0.04]";
+  "flex cursor-pointer items-start gap-3 rounded-md border border-transparent px-1 py-2 transition hover:border-black/10 hover:bg-champagne/40";
 const checkInput =
-  "mt-1 h-4 w-4 shrink-0 rounded border-white/25 bg-black/40 text-gold focus:ring-gold/40";
+  "mt-1 h-4 w-4 shrink-0 rounded border-black/25 bg-ivory text-gold focus:ring-gold/40";
 
 function formatServerError(payload: unknown): string {
   if (!payload || typeof payload !== "object") {
@@ -62,14 +62,14 @@ function YesNoRadios({
         {(["yes", "no"] as const).map((v) => (
           <label
             key={v}
-            className="flex cursor-pointer items-center gap-2 rounded-full border border-white/10 bg-black/30 px-5 py-2.5 text-sm text-[#ebe4d9] transition hover:border-gold/40 has-[:checked]:border-gold/50 has-[:checked]:bg-gold/10"
+            className="flex cursor-pointer items-center gap-2 rounded-full border border-black/15 bg-ivory px-5 py-2.5 text-sm text-ink transition hover:border-gold/50 has-[:checked]:border-gold has-[:checked]:bg-champagne/60"
           >
             <input
               type="radio"
               name={name}
               value={v}
               required={req}
-              className="h-3.5 w-3.5 border-white/30 text-gold focus:ring-gold/30"
+              className="h-3.5 w-3.5 border-black/25 text-gold focus:ring-gold/30"
             />
             {v === "yes" ? "Yes" : "No"}
           </label>
@@ -154,13 +154,13 @@ export function MaisonEleveIntakeForm() {
   if (status === "success") {
     return (
       <div
-        className="mt-12 rounded-lg border border-gold/25 bg-gold/[0.06] px-6 py-10 text-center md:px-10"
+        className="mt-12 rounded-sm border border-gold/30 bg-beige/40 px-6 py-10 text-center md:px-10"
         role="status"
       >
-        <p className="font-serif text-2xl text-[#f8f4ec] md:text-3xl">
+        <p className="font-serif text-2xl text-ink md:text-3xl">
           Begin Your Bespoke Experience
         </p>
-        <p className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-[#d8cfc2]">
+        <p className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-muted">
           {message}
         </p>
       </div>
@@ -171,7 +171,7 @@ export function MaisonEleveIntakeForm() {
     <form className="mt-12 space-y-12 md:space-y-14" onSubmit={handleSubmit}>
       {/* Section 1 */}
       <section className={sectionWrap}>
-        <div className="flex flex-col gap-1 border-b border-white/10 pb-5 md:flex-row md:items-end md:justify-between">
+        <div className="flex flex-col gap-1 border-b border-black/10 pb-5 md:flex-row md:items-end md:justify-between">
           <div>
             <span className={sectionNum}>1</span>
             <h2 className={`mt-3 ${sectionTitle}`}>Client information</h2>
@@ -214,7 +214,7 @@ export function MaisonEleveIntakeForm() {
 
       {/* Section 2 */}
       <section className={sectionWrap}>
-        <div className="border-b border-white/10 pb-5">
+        <div className="border-b border-black/10 pb-5">
           <span className={sectionNum}>2</span>
           <h2 className={`mt-3 ${sectionTitle}`}>Event details</h2>
         </div>
@@ -249,7 +249,7 @@ export function MaisonEleveIntakeForm() {
 
       {/* Section 3 */}
       <section className={sectionWrap}>
-        <div className="border-b border-white/10 pb-5">
+        <div className="border-b border-black/10 pb-5">
           <span className={sectionNum}>3</span>
           <h2 className={`mt-3 ${sectionTitle}`}>Service request</h2>
         </div>
@@ -267,14 +267,14 @@ export function MaisonEleveIntakeForm() {
                     value={opt}
                     className={checkInput}
                   />
-                  <span className="text-[15px] leading-snug text-[#e8e0d5]">
+                  <span className="text-[15px] leading-snug text-ink">
                     {opt}
                   </span>
                 </label>
               ))}
             </div>
             {serviceError ? (
-              <p className="mt-2 text-sm text-amber-200/90" role="alert">
+              <p className="mt-2 text-sm text-red-800" role="alert">
                 {serviceError}
               </p>
             ) : null}
@@ -297,7 +297,7 @@ export function MaisonEleveIntakeForm() {
 
       {/* Section 4 */}
       <section className={sectionWrap}>
-        <div className="border-b border-white/10 pb-5">
+        <div className="border-b border-black/10 pb-5">
           <span className={sectionNum}>4</span>
           <h2 className={`mt-3 ${sectionTitle}`}>Style vision</h2>
         </div>
@@ -314,9 +314,9 @@ export function MaisonEleveIntakeForm() {
                 type="file"
                 accept="image/*"
                 multiple
-                className={`${input} cursor-pointer file:mr-4 file:rounded file:border-0 file:bg-gold/20 file:px-3 file:py-1.5 file:text-xs file:uppercase file:tracking-wider file:text-[#f5f0e8]`}
+                className={`${input} cursor-pointer file:mr-4 file:rounded file:border-0 file:bg-champagne file:px-3 file:py-1.5 file:text-xs file:uppercase file:tracking-wider file:text-ink`}
               />
-              <p className="mt-2 text-xs leading-relaxed text-white/45">
+              <p className="mt-2 text-xs leading-relaxed text-muted">
                 Up to 4 images, 5MB each.
               </p>
             </label>
@@ -338,7 +338,7 @@ export function MaisonEleveIntakeForm() {
               {maisonFabricOptions.map((f) => (
                 <label
                   key={f}
-                  className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/10 bg-black/25 px-4 py-2 text-sm text-[#e8e0d5] has-[:checked]:border-gold/45 has-[:checked]:bg-gold/10"
+                  className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-black/15 bg-ivory px-4 py-2 text-sm text-ink has-[:checked]:border-gold has-[:checked]:bg-champagne/50"
                 >
                   <input
                     type="checkbox"
@@ -364,7 +364,7 @@ export function MaisonEleveIntakeForm() {
 
       {/* Section 5 */}
       <section className={sectionWrap}>
-        <div className="border-b border-white/10 pb-5">
+        <div className="border-b border-black/10 pb-5">
           <span className={sectionNum}>5</span>
           <h2 className={`mt-3 ${sectionTitle}`}>Sizing &amp; fit</h2>
         </div>
@@ -394,7 +394,7 @@ export function MaisonEleveIntakeForm() {
 
       {/* Section 6 */}
       <section className={sectionWrap}>
-        <div className="border-b border-white/10 pb-5">
+        <div className="border-b border-black/10 pb-5">
           <span className={sectionNum}>6</span>
           <h2 className={`mt-3 ${sectionTitle}`}>Budget range</h2>
         </div>
@@ -415,7 +415,7 @@ export function MaisonEleveIntakeForm() {
 
       {/* Section 7 */}
       <section className={sectionWrap}>
-        <div className="border-b border-white/10 pb-5">
+        <div className="border-b border-black/10 pb-5">
           <span className={sectionNum}>7</span>
           <h2 className={`mt-3 ${sectionTitle}`}>Timeline</h2>
         </div>
@@ -436,7 +436,7 @@ export function MaisonEleveIntakeForm() {
 
       {/* Section 8 */}
       <section className={sectionWrap}>
-        <div className="border-b border-white/10 pb-5">
+        <div className="border-b border-black/10 pb-5">
           <span className={sectionNum}>8</span>
           <h2 className={`mt-3 ${sectionTitle}`}>Additional services</h2>
         </div>
@@ -449,7 +449,7 @@ export function MaisonEleveIntakeForm() {
                 value={opt}
                 className={checkInput}
               />
-              <span className="text-[15px] text-[#e8e0d5]">{opt}</span>
+              <span className="text-[15px] text-ink">{opt}</span>
             </label>
           ))}
         </div>
@@ -457,7 +457,7 @@ export function MaisonEleveIntakeForm() {
 
       {/* Section 9 */}
       <section className={sectionWrap}>
-        <div className="border-b border-white/10 pb-5">
+        <div className="border-b border-black/10 pb-5">
           <span className={sectionNum}>9</span>
           <h2 className={`mt-3 ${sectionTitle}`}>Final notes</h2>
         </div>
@@ -471,18 +471,18 @@ export function MaisonEleveIntakeForm() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="rounded-full bg-gradient-to-r from-gold/90 to-[#c4a574] px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-ink shadow-soft transition hover:from-gold hover:to-gold disabled:opacity-60"
+          className="rounded-full bg-ink px-10 py-4 text-[11px] uppercase tracking-[0.24em] text-ivory transition hover:bg-black disabled:opacity-60"
         >
           {status === "loading" ? "Submitting…" : "Begin My Bespoke Experience"}
         </button>
-        <p className="text-center text-xs leading-relaxed text-white/40 sm:text-left">
+        <p className="text-center text-xs leading-relaxed text-muted sm:text-left">
           Fields marked * are required. By submitting, you agree to be contacted
           regarding your request.
         </p>
       </div>
 
       {status === "error" && message ? (
-        <p className="text-sm text-amber-200/95" role="alert">
+        <p className="text-sm text-red-800" role="alert">
           {message}
         </p>
       ) : null}
