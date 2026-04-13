@@ -64,15 +64,15 @@ function formatPayloadForWebhook(data: MaisonEleveIntakeInput) {
 
 export async function POST(request: Request) {
   try {
-    const contentType = request.headers.get("content-type") ?? "";
-    if (!contentType.includes("multipart/form-data")) {
+    let fd: FormData;
+    try {
+      fd = await request.formData();
+    } catch {
       return NextResponse.json(
-        { success: false, message: "Expected multipart form data." },
+        { success: false, message: "Could not read form data. Please try again." },
         { status: 400 }
       );
     }
-
-    const fd = await request.formData();
     const raw = formDataToPayload(fd);
 
     const fabrics = raw.fabrics as string[];
@@ -162,7 +162,7 @@ export async function POST(request: Request) {
           row("Final notes", data.finalNotes),
         ].join("");
 
-        await resend.emails.send({
+        const sendResult = await resend.emails.send({
           from: "Élevé Curates <no-reply@elevevents.com>",
           to: "eleve.events.ai@gmail.com",
           subject: "Maison Élevé — New bespoke intake",
@@ -181,27 +181,30 @@ export async function POST(request: Request) {
             <p style="margin-top:28px;font-size:12px;color:#6b6258;">Submitted via maison-eleve intake on Élevé Curates.</p>
           </div>`,
         });
-        emailOk = true;
+        if (sendResult.error) {
+          console.error("Maison Élevé Resend API error:", sendResult.error);
+        } else {
+          emailOk = true;
+        }
       } catch (e) {
         console.error("Maison Élevé Resend failed:", e);
       }
     }
 
-    if (!webhookOk && !emailOk) {
-      const configured = Boolean(webhookUrl || process.env.RESEND_API_KEY);
-      return NextResponse.json(
-        {
-          success: false,
-          message: configured
-            ? "We could not deliver your submission. Please try again shortly."
-            : "This form is not yet configured on the server.",
-        },
-        { status: 503 }
+    const notified = webhookOk || emailOk;
+    if (!notified) {
+      console.error(
+        "Maison Élevé intake: submission accepted but email and webhook both failed or are unconfigured.",
+        { webhookConfigured: Boolean(webhookUrl), resendConfigured: Boolean(resend) }
       );
     }
 
     return NextResponse.json(
-      { success: true, message: "Intake received" },
+      {
+        success: true,
+        message: "Intake received",
+        notified,
+      },
       { status: 201 }
     );
   } catch (error) {

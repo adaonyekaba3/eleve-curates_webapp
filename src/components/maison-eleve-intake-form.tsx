@@ -25,6 +25,27 @@ const checkRow =
 const checkInput =
   "mt-1 h-4 w-4 shrink-0 rounded border-white/25 bg-black/40 text-gold focus:ring-gold/40";
 
+function formatServerError(payload: unknown): string {
+  if (!payload || typeof payload !== "object") {
+    return "Please review your details and try again.";
+  }
+  const j = payload as {
+    message?: string;
+    issues?: { fieldErrors?: Record<string, string[]>; formErrors?: string[] };
+  };
+  const fe = j.issues?.fieldErrors;
+  if (fe && typeof fe === "object") {
+    const lines = Object.entries(fe).flatMap(([key, msgs]) =>
+      (msgs ?? []).map((m) => `${key}: ${m}`)
+    );
+    if (lines.length) return lines.join(" ");
+  }
+  const formErr = j.issues?.formErrors;
+  if (formErr?.length) return formErr.join(" ");
+  if (j.message) return j.message;
+  return "Please review your details and try again.";
+}
+
 function YesNoRadios({
   name,
   legend,
@@ -78,28 +99,55 @@ export function MaisonEleveIntakeForm() {
     }
 
     setStatus("loading");
-    const res = await fetch("/api/maison-eleve-intake", {
-      method: "POST",
-      body: fd,
-    });
-
-    if (!res.ok) {
+    let res: Response;
+    try {
+      res = await fetch("/api/maison-eleve-intake", {
+        method: "POST",
+        body: fd,
+      });
+    } catch {
       setStatus("error");
-      let detail = "Please review your details and try again.";
-      try {
-        const j = (await res.json()) as { message?: string };
-        if (j.message) detail = j.message;
-      } catch {
-        /* ignore */
-      }
-      setMessage(detail);
+      setMessage(
+        "We could not reach the server. Check your connection and try again."
+      );
       return;
     }
 
+    const rawBody = await res.text();
+    let parsed: unknown;
+    try {
+      parsed = rawBody ? JSON.parse(rawBody) : {};
+    } catch {
+      if (res.ok) {
+        setStatus("success");
+        setMessage(
+          "Thank you for your inquiry. Our team will review your submission and respond within 24–48 hours."
+        );
+        form.reset();
+      } else {
+        setStatus("error");
+        setMessage(
+          "Something went wrong. Please try again or contact us directly."
+        );
+      }
+      return;
+    }
+
+    if (!res.ok) {
+      setStatus("error");
+      setMessage(formatServerError(parsed));
+      return;
+    }
+
+    const success = parsed as { notified?: boolean };
     setStatus("success");
-    setMessage(
-      "Thank you for your inquiry. Our team will review your submission and respond within 24–48 hours."
-    );
+    let thanks =
+      "Thank you for your inquiry. Our team will review your submission and respond within 24–48 hours.";
+    if (success.notified === false) {
+      thanks +=
+        " If you do not hear from us within 48 hours, please reach out through the main Inquire page.";
+    }
+    setMessage(thanks);
     form.reset();
   }
 
@@ -157,7 +205,7 @@ export function MaisonEleveIntakeForm() {
               type="tel"
               required
               autoComplete="tel"
-              minLength={7}
+              minLength={5}
               className={input}
             />
           </label>
@@ -276,7 +324,9 @@ export function MaisonEleveIntakeForm() {
               <span className={label}>Or paste a Pinterest / mood board link</span>
               <input
                 name="pinterestLink"
-                type="url"
+                type="text"
+                inputMode="url"
+                autoComplete="off"
                 placeholder="https://…"
                 className={input}
               />

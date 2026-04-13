@@ -62,7 +62,7 @@ const addOnItem = z.enum(maisonAdditionalServiceOptions);
 export const maisonEleveIntakeSchema = z.object({
   fullName: z.string().min(2).max(120),
   email: z.string().email().max(255),
-  phoneNumber: z.string().min(7).max(40),
+  phoneNumber: z.string().min(5).max(40),
   eventType: z.enum(eventTypes),
   eventName: optionalText,
   eventDate: optionalText,
