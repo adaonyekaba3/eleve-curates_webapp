@@ -13,7 +13,7 @@ export default function BlogIndexPage() {
         <div className="journal-divider" />
 
         <div className="space-y-7">
-          <article className="border-b border-black/10 pb-7">
+          {/* <article className="border-b border-black/10 pb-7">
             <p className="text-[11px] uppercase tracking-[0.2em] text-[#5e5a52]">Apr 2026</p>
             <h2 className="mt-3 font-serif text-3xl leading-tight md:text-4xl">
               <Link href="/blog/rebuilding-my-life" className="journal-link no-underline hover:underline">
@@ -23,9 +23,9 @@ export default function BlogIndexPage() {
             <p className="mt-3 text-[#44423d]">
               A personal reflection on grief, identity, and the journey to rebuild with faith, clarity, and joy.
             </p>
-          </article>
+          </article=> */}
 
-          {/* <article className="border-b border-black/10 pb-7">
+          <article className="border-b border-black/10 pb-7">
             <p className="text-[11px] uppercase tracking-[0.2em] text-[#5e5a52]">Guide</p>
             <h2 className="mt-3 font-serif text-3xl leading-tight md:text-4xl">
               <Link href="/blog/future-ceo-gpt" className="journal-link no-underline hover:underline">
@@ -35,7 +35,7 @@ export default function BlogIndexPage() {
             <p className="mt-3 text-[#44423d]">
               A practical walkthrough to design your own strategic AI system for daily execution.
             </p>
-          </article> */}
+          </article>
         </div>
       </section>
     </main>
