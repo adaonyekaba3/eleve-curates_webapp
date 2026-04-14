@@ -54,3 +54,59 @@ body {
     transform: translateY(0) scale(1);
   }
 }
+
+.journal-page {
+  @apply bg-[#f6f3ec] text-[#111111];
+}
+
+.journal-shell {
+  @apply mx-auto w-[min(700px,92%)] py-16 md:py-24;
+}
+
+.journal-label {
+  @apply text-[10px] uppercase tracking-[0.35em] text-[#6f6b62];
+}
+
+.journal-title {
+  @apply mt-4 font-serif text-4xl font-semibold leading-tight md:text-6xl;
+}
+
+.journal-subtitle {
+  @apply mt-4 text-base italic text-[#565249] md:text-lg;
+}
+
+.journal-meta {
+  @apply mt-8 border-y border-black/10 py-4 text-xs uppercase tracking-[0.18em] text-[#5e5a52];
+}
+
+.journal-divider {
+  @apply my-10 h-px w-full bg-black/10;
+}
+
+.journal-article {
+  @apply text-[17px] leading-8 text-[#1f1f1f] md:text-[18px];
+}
+
+.journal-article p {
+  @apply mb-7;
+}
+
+.journal-dropcap::first-letter {
+  @apply mr-2 float-left font-serif text-6xl leading-[0.92] md:text-7xl;
+}
+
+.journal-link {
+  @apply text-[#161616] underline decoration-black/25 underline-offset-4 transition hover:decoration-black;
+}
+
+.journal-callout {
+  @apply my-8 rounded-sm border border-black/15 bg-white/80 p-6;
+}
+
+.journal-progress-track {
+  @apply fixed left-0 top-0 z-[60] h-[2px] w-full bg-black/10;
+}
+
+.journal-progress-bar {
+  @apply h-full bg-black transition-[width] duration-150;
+}

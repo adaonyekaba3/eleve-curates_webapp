@@ -14,6 +14,7 @@ const links = [
   { href: "/#services", label: "Services" },
   { href: "/#portfolio", label: "Portfolio" },
   { href: "/#about", label: "About" },
+  { href: "/blog", label: "Journal" },
   { href: "/inquire", label: "Inquire" },
   { href: "/maison-eleve/intake", label: "Maison Élevé" },
 ];
@@ -78,6 +79,12 @@ export function SiteHeader() {
 
         {pathname !== "/portal" && (
           <div className="flex items-center gap-2 lg:hidden">
+            <Link
+              href="/blog"
+              className="rounded-full border border-black/20 px-3 py-2 text-[9px] uppercase tracking-[0.2em] text-ink transition hover:bg-black/5"
+            >
+              Journal
+            </Link>
             <Link
               href="/maison-eleve/intake"
               className="rounded-full border border-gold/50 px-3 py-2 text-[9px] uppercase tracking-[0.2em] text-ink transition hover:bg-champagne/50"
