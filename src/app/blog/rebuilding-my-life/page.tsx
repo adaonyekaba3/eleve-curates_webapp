@@ -81,7 +81,8 @@ export default function RebuildingMyLifePage() {
               A personal reflection on grief, restoration, and rebuilding from alignment.
             </p>
             <div className="journal-meta">
-              Author: Adaobi Chiamaka Onyekaba · Role: CEO, Élevé Curates · Date: April 2026
+              Author: Adaobi Onyekaba · Role: CEO, Élevé Curates · Date: April 2026
+         
             </div>
             <div className="mt-8 overflow-hidden rounded-sm border border-black/10 bg-[#ece7dc]">
               <Image
