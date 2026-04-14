@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import {
+  MAISON_MAX_IMAGE_BYTES,
+  MAISON_MAX_IMAGE_FILES,
+  MAISON_MAX_TOTAL_IMAGE_BYTES,
+} from "@/lib/maison-eleve-upload-limits";
+import {
   maisonEleveIntakeSchema,
   type MaisonEleveIntakeInput,
 } from "@/lib/validations/maison-eleve-intake";
@@ -8,9 +13,6 @@ import {
 const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)
   : null;
-
-const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
-const MAX_IMAGE_FILES = 4;
 
 function escapeHtml(s: string) {
   return s
@@ -96,12 +98,27 @@ export async function POST(request: Request) {
     const imageFields = fd.getAll("inspirationImages");
     const attachments: { filename: string; content: Buffer }[] = [];
 
+    let totalImageBytes = 0;
     for (const entry of imageFields) {
       if (!(entry instanceof File) || entry.size === 0) continue;
-      if (attachments.length >= MAX_IMAGE_FILES) break;
-      if (entry.size > MAX_IMAGE_BYTES) {
+      if (attachments.length >= MAISON_MAX_IMAGE_FILES) break;
+      if (entry.size > MAISON_MAX_IMAGE_BYTES) {
         return NextResponse.json(
-          { success: false, message: "Each inspiration image must be 5MB or smaller." },
+          {
+            success: false,
+            message: `Each inspiration image must be ${Math.floor(MAISON_MAX_IMAGE_BYTES / 1024)}KB or smaller (Vercel upload limit).`,
+          },
+          { status: 400 }
+        );
+      }
+      totalImageBytes += entry.size;
+      if (totalImageBytes > MAISON_MAX_TOTAL_IMAGE_BYTES) {
+        return NextResponse.json(
+          {
+            success: false,
+            message:
+              "Total upload size is too large. Please use fewer or smaller images and try again.",
+          },
           { status: 400 }
         );
       }

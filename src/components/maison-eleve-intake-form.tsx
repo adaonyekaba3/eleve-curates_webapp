@@ -2,6 +2,10 @@
 
 import { FormEvent, useState } from "react";
 import {
+  MAISON_MAX_IMAGE_BYTES,
+  MAISON_MAX_TOTAL_IMAGE_BYTES,
+} from "@/lib/maison-eleve-upload-limits";
+import {
   maisonAdditionalServiceOptions,
   maisonBudgetRanges,
   maisonEventTypes,
@@ -44,6 +48,19 @@ function formatServerError(payload: unknown): string {
   if (formErr?.length) return formErr.join(" ");
   if (j.message) return j.message;
   return "Please review your details and try again.";
+}
+
+function messageForNonJsonError(res: Response): string {
+  if (res.status === 413) {
+    return "The upload is too large for our server (about 3.2MB max for images). Use smaller files or fewer images, or share a link instead.";
+  }
+  if (res.status === 504 || res.status === 502) {
+    return "The server timed out. Please try again with smaller images or without attachments.";
+  }
+  if (res.status >= 500) {
+    return "Our server had a problem processing this request. Please try again in a moment.";
+  }
+  return `Something went wrong (error ${res.status}). Please try again or contact us directly.`;
 }
 
 function YesNoRadios({
@@ -98,6 +115,30 @@ export function MaisonEleveIntakeForm() {
       return;
     }
 
+    const fileEl = form.querySelector<HTMLInputElement>(
+      'input[name="inspirationImages"]'
+    );
+    if (fileEl?.files?.length) {
+      let total = 0;
+      for (const f of fileEl.files) {
+        if (f.size > MAISON_MAX_IMAGE_BYTES) {
+          setStatus("error");
+          setMessage(
+            `Each image must be ${Math.round(MAISON_MAX_IMAGE_BYTES / 1024)}KB or smaller.`
+          );
+          return;
+        }
+        total += f.size;
+      }
+      if (total > MAISON_MAX_TOTAL_IMAGE_BYTES) {
+        setStatus("error");
+        setMessage(
+          "Total image size is too large. Use fewer images or smaller files, or paste a Pinterest link instead."
+        );
+        return;
+      }
+    }
+
     setStatus("loading");
     let res: Response;
     try {
@@ -126,9 +167,7 @@ export function MaisonEleveIntakeForm() {
         form.reset();
       } else {
         setStatus("error");
-        setMessage(
-          "Something went wrong. Please try again or contact us directly."
-        );
+        setMessage(messageForNonJsonError(res));
       }
       return;
     }
@@ -317,7 +356,8 @@ export function MaisonEleveIntakeForm() {
                 className={`${input} cursor-pointer file:mr-4 file:rounded file:border-0 file:bg-champagne file:px-3 file:py-1.5 file:text-xs file:uppercase file:tracking-wider file:text-ink`}
               />
               <p className="mt-2 text-xs leading-relaxed text-muted">
-                Up to 4 images, 5MB each.
+                Up to 4 images, {Math.round(MAISON_MAX_IMAGE_BYTES / 1024)}KB each (~3.2MB
+                combined max — keeps uploads within Vercel&apos;s limit).
               </p>
             </label>
             <label>
