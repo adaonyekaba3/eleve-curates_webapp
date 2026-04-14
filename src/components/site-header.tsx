@@ -16,7 +16,7 @@ const links = [
   { href: "/#about", label: "About" },
   { href: "/blog", label: "Journal" },
   { href: "/inquire", label: "Inquire" },
-  { href: "/maison-eleve/intake", label: "Maison Élevé" },
+  { href: "/atelier-eleve/intake", label: "Atelier Élevé" },
 ];
 
 export function SiteHeader() {
@@ -86,10 +86,10 @@ export function SiteHeader() {
               Journal
             </Link>
             <Link
-              href="/maison-eleve/intake"
+              href="/atelier-eleve/intake"
               className="rounded-full border border-gold/50 px-3 py-2 text-[9px] uppercase tracking-[0.2em] text-ink transition hover:bg-champagne/50"
             >
-              Maison
+              Atelier
             </Link>
             <Link
               href="/inquire"

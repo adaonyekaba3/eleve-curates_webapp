@@ -20,15 +20,15 @@ export default function InquirePage() {
           Start Your Journey
         </Link>
         <Link
-          href="/maison-eleve/intake"
+          href="/atelier-eleve/intake"
           className="inline-block rounded-full border border-gold/60 bg-transparent px-8 py-4 text-center text-[11px] uppercase tracking-[0.24em] text-ink transition hover:border-gold hover:bg-champagne/40"
         >
-          Maison Élevé — Bespoke styling
+          Atelier Élevé — Bespoke styling
         </Link>
       </div>
       <p className="mt-8 max-w-xl text-sm text-muted">
         For tailoring, aso-ebi, bridal looks, and wardrobe styling under our
-        Maison Élevé line, use the bespoke intake so our atelier team can
+        Atelier Élevé line, use the bespoke intake so our atelier team can
         respond with the right next steps.
       </p>
     </main>

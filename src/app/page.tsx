@@ -87,10 +87,10 @@ export default function Home() {
               Start Your Journey
             </Link>
             <Link
-              href="/maison-eleve/intake"
+              href="/atelier-eleve/intake"
               className="text-[10px] uppercase tracking-[0.28em] text-ivory/75 transition hover:text-ivory"
             >
-              Maison Élevé — Bespoke styling &amp; tailoring
+              Atelier Élevé — Bespoke styling &amp; tailoring
             </Link>
           </div>
         </div>
@@ -175,10 +175,10 @@ export default function Home() {
             Start Your Journey
           </Link>
           <Link
-            href="/maison-eleve/intake"
+            href="/atelier-eleve/intake"
             className="inline-block rounded-full border border-gold/50 px-8 py-4 text-[11px] uppercase tracking-[0.24em] text-ink transition hover:border-gold hover:bg-champagne/50"
           >
-            Maison Élevé intake
+            Atelier Élevé intake
           </Link>
         </div>
       </section>

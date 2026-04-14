@@ -7,8 +7,8 @@ export function SiteFooter() {
         <p>Élevé Curates</p>
         <p>Boston | Ikoyi, Lagos (serving Victoria Island, Lekki, Banana Island)</p>
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-          <Link href="/maison-eleve/intake" className="transition hover:text-ink">
-            Maison Élevé intake
+          <Link href="/atelier-eleve/intake" className="transition hover:text-ink">
+            Atelier Élevé intake
           </Link>
           <a
             href="https://instagram.com"

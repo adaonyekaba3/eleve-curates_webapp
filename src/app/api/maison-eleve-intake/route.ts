@@ -145,10 +145,10 @@ export async function POST(request: Request) {
         });
         webhookOk = res.ok;
         if (!webhookOk) {
-          console.error("Maison Élevé webhook returned", res.status, await res.text());
+          console.error("Atelier Élevé webhook returned", res.status, await res.text());
         }
       } catch (e) {
-        console.error("Maison Élevé webhook failed:", e);
+        console.error("Atelier Élevé webhook failed:", e);
       }
     }
 
@@ -182,7 +182,7 @@ export async function POST(request: Request) {
         const sendResult = await resend.emails.send({
           from: "Élevé Curates <no-reply@elevevents.com>",
           to: "eleve.events.ai@gmail.com",
-          subject: "Maison Élevé — New bespoke intake",
+          subject: "Atelier Élevé — New bespoke intake",
           attachments:
             attachments.length > 0
               ? attachments.map((a) => ({
@@ -192,26 +192,26 @@ export async function POST(request: Request) {
               : undefined,
           html: `
           <div style="font-family:Georgia,serif;color:#1a1a1a;max-width:640px;margin:0 auto;padding:28px;background:#f8f2e8;">
-            <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#b69c78;margin:0 0 8px;">Maison Élevé</p>
+            <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#b69c78;margin:0 0 8px;">Atelier Élevé</p>
             <h1 style="font-size:22px;margin:0 0 20px;border-bottom:1px solid #e5dcd0;padding-bottom:14px;">Bespoke intake submission</h1>
             <table style="width:100%;border-collapse:collapse;font-size:15px;line-height:1.55;">${rows}</table>
             <p style="margin-top:28px;font-size:12px;color:#6b6258;">Submitted via maison-eleve intake on Élevé Curates.</p>
           </div>`,
         });
         if (sendResult.error) {
-          console.error("Maison Élevé Resend API error:", sendResult.error);
+          console.error("Atelier Élevé Resend API error:", sendResult.error);
         } else {
           emailOk = true;
         }
       } catch (e) {
-        console.error("Maison Élevé Resend failed:", e);
+        console.error("Atelier Élevé Resend failed:", e);
       }
     }
 
     const notified = webhookOk || emailOk;
     if (!notified) {
       console.error(
-        "Maison Élevé intake: submission accepted but email and webhook both failed or are unconfigured.",
+        "Atelier Élevé intake: submission accepted but email and webhook both failed or are unconfigured.",
         { webhookConfigured: Boolean(webhookUrl), resendConfigured: Boolean(resend) }
       );
     }
@@ -225,7 +225,7 @@ export async function POST(request: Request) {
       { status: 201 }
     );
   } catch (error) {
-    console.error("Maison Élevé intake error:", error);
+    console.error("Atelier Élevé intake error:", error);
     return NextResponse.json(
       { success: false, message: "An unexpected error occurred. Please try again." },
       { status: 500 }
