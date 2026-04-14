@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { JournalPasswordGate } from "@/components/journal-password-gate";
 import { JournalProgressBar } from "@/components/journal-progress-bar";
 
@@ -81,6 +82,16 @@ export default function RebuildingMyLifePage() {
             </p>
             <div className="journal-meta">
               Author: Adaobi Chiamaka Onyekaba · Role: CEO, Élevé Curates · Date: April 2026
+            </div>
+            <div className="mt-8 overflow-hidden rounded-sm border border-black/10 bg-[#ece7dc]">
+              <Image
+                src="/images/speema-picture.JPG"
+                alt="Adaobi Chiamaka Onyekaba in an editorial portrait"
+                width={1600}
+                height={2000}
+                priority
+                className="h-auto w-full object-cover"
+              />
             </div>
           </header>
 
