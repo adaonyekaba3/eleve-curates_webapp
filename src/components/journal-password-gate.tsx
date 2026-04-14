@@ -15,10 +15,10 @@ export function JournalPasswordGate({
   prompt = "Enter password to access journal",
   children,
 }: JournalPasswordGateProps) {
-  const configuredPassword = useMemo(
-    () => process.env.NEXT_PUBLIC_JOURNAL_PASSWORD ?? "eleve-journal",
-    [],
-  );
+  const configuredPassword = useMemo(() => {
+    const raw = process.env.NEXT_PUBLIC_JOURNAL_PASSWORD ?? "eleve-journal";
+    return raw.trim().replace(/^["']|["']$/g, "").toLowerCase();
+  }, []);
   const [isUnlocked, setIsUnlocked] = useState(() => {
     if (typeof window === "undefined") {
       return false;
@@ -30,7 +30,7 @@ export function JournalPasswordGate({
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const nextValue = password.trim();
+    const nextValue = password.trim().replace(/^["']|["']$/g, "").toLowerCase();
 
     if (nextValue === configuredPassword) {
       if (typeof window !== "undefined") {
