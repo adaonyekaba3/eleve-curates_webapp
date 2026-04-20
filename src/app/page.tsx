@@ -120,7 +120,7 @@ export default function Home() {
           </p>
           <div className="mt-10">
             <Link
-              href="https://elevevents.com/atelier-eleve/inquire"
+              href="https://elevevents.com/inquire"
               className="editorial-button-primary"
             >
               Start Your Journey
@@ -207,7 +207,7 @@ export default function Home() {
         </p>
         <div className="mt-8">
           <Link
-            href="https://elevevents.com/atelier-eleve/inquire"
+            href="https://elevevents.com/inquire"
             className="editorial-button-primary"
           >
             Start Your Journey
