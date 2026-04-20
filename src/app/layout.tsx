@@ -20,21 +20,21 @@ const serif = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://elevevents.com"),
-  title: "Élevé Curates | Luxury Event Planning",
+  title: "Atelier Élevé | Refined Event Studio",
   description:
-    "Transatlantic luxury event planning and bespoke styling across Boston and Ikoyi, Lagos.",
+    "Atelier Élevé curates refined celebrations through thoughtful planning, design, and styling.",
   openGraph: {
-    title: "Élevé Curates | Luxury Event Planning",
+    title: "Atelier Élevé | Refined Event Studio",
     description:
-      "Transatlantic luxury event planning and bespoke styling across Boston and Ikoyi, Lagos.",
+      "Atelier Élevé curates refined celebrations through thoughtful planning, design, and styling.",
     url: "https://elevevents.com",
-    siteName: "Élevé Curates",
+    siteName: "Atelier Élevé",
     images: [
       {
         url: "/images/eleve-logo-gold.png",
         width: 1200,
         height: 630,
-        alt: "Élevé Curates Logo",
+        alt: "Atelier Élevé Logo",
       },
     ],
     locale: "en_US",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Élevé Curates | Luxury Event Planning",
+    title: "Atelier Élevé | Refined Event Studio",
     description:
-      "Transatlantic luxury event planning and bespoke styling across Boston and Ikoyi, Lagos.",
+      "Atelier Élevé curates refined celebrations through thoughtful planning, design, and styling.",
     images: ["/images/eleve-logo-gold.png"],
   },
 };

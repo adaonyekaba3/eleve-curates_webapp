@@ -27,7 +27,7 @@ export function SiteHeader() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-black/5 bg-ivory/90 backdrop-blur">
       <div className="editorial-container flex h-20 items-center justify-between">
         <Link href="/" className="font-serif text-3xl">
-          Élevé Curates
+          Atelier Élevé
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">

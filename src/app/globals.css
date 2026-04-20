@@ -16,11 +16,11 @@ body {
 }
 
 .editorial-container {
-  @apply mx-auto w-[min(1160px,92%)] px-2;
+  @apply mx-auto w-[min(1080px,92%)] px-2 md:px-3;
 }
 
 .section-space {
-  @apply py-20 md:py-28;
+  @apply py-16 md:py-24 lg:py-28;
 }
 
 .eyebrow {
@@ -28,7 +28,35 @@ body {
 }
 
 .editorial-heading {
-  @apply font-serif text-4xl leading-tight md:text-6xl;
+  @apply font-serif text-4xl leading-[1.02] md:text-6xl;
+}
+
+.section-title {
+  @apply font-serif text-[2.1rem] leading-[1.08] md:text-5xl;
+}
+
+.section-lead {
+  @apply text-[15px] leading-7 text-muted md:text-[17px] md:leading-8;
+}
+
+.editorial-button-primary {
+  @apply inline-flex items-center justify-center rounded-full bg-ink px-8 py-4 text-[11px] uppercase tracking-[0.24em] text-ivory transition duration-300 hover:-translate-y-[1px] hover:bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ivory;
+}
+
+.editorial-button-subtle {
+  @apply inline-flex items-center justify-center rounded-full border border-gold/60 bg-champagne/20 px-7 py-3 text-[11px] uppercase tracking-[0.24em] text-ink transition duration-300 hover:-translate-y-[1px] hover:bg-champagne/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ivory;
+}
+
+.service-card {
+  @apply rounded-sm border border-gold/30 bg-beige/25 p-6 md:p-8 lg:p-9;
+}
+
+.service-label {
+  @apply block text-[10px] uppercase tracking-[0.26em] text-gold/90;
+}
+
+.service-value {
+  @apply mt-1 block text-[12px] uppercase tracking-[0.12em] text-ink;
 }
 
 .fade-in {
