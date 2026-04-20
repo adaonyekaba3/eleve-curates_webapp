@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 type Service = {
   title: string;
@@ -109,7 +110,23 @@ export default function Home() {
   return (
     <main>
       <section className="relative overflow-hidden border-b border-black/10 bg-gradient-to-b from-[#f7f1e7] to-[#f4ede1]">
-        <div className="editorial-container section-space relative text-center">
+        <div
+          className="pointer-events-none absolute inset-0 z-0 select-none"
+          aria-hidden
+        >
+          <div className="hero-watermark-mark">
+            <Image
+              src="/images/atelier-eleve-hero-mark.png"
+              alt=""
+              width={720}
+              height={720}
+              sizes="(max-width: 768px) 85vw, 520px"
+              className="h-auto w-full object-contain object-bottom"
+              priority
+            />
+          </div>
+        </div>
+        <div className="editorial-container section-space relative z-10 text-center">
           <p className="eyebrow">Atelier Élevé</p>
           <h1 className="editorial-heading mt-6 text-[2.9rem] md:text-7xl">
             Every Moment, Elevated.

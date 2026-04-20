@@ -59,6 +59,11 @@ body {
   @apply mt-1 block text-[12px] uppercase tracking-[0.12em] text-ink;
 }
 
+/* Hero: large circular mark, low contrast, anchored so copy stays crisp */
+.hero-watermark-mark {
+  @apply absolute -bottom-[18%] -right-[14%] w-[min(88vw,420px)] opacity-[0.075] sm:-bottom-[12%] sm:-right-[10%] sm:w-[min(72vw,460px)] md:-bottom-[8%] md:-right-[6%] md:w-[min(52vw,540px)] md:opacity-[0.1];
+}
+
 .fade-in {
   opacity: 0;
   transform: translateY(12px);

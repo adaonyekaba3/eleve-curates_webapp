@@ -20,6 +20,10 @@ const serif = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://elevevents.com"),
+  icons: {
+    icon: [{ url: "/images/atelier-eleve-hero-mark.png", type: "image/png" }],
+    apple: [{ url: "/images/atelier-eleve-hero-mark.png", type: "image/png" }],
+  },
   title: "Atelier Élevé | Refined Event Studio",
   description:
     "Atelier Élevé curates refined celebrations through thoughtful planning, design, and styling.",
