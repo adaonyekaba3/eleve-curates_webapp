@@ -1,111 +1,77 @@
-# Élevé Curates — Luxury Event Planning Platform
+# Atelier Élevé — Creative Event Studio Platform
 
-A modern, editorial-style luxury website and digital platform for Élevé Curates — a transatlantic event planning and creative direction brand operating between Boston (USA) and Ikoyi, Lagos (Nigeria), serving Victoria Island, Lekki, Banana Island, and surrounding premium areas.
+A modern, editorial-style website and digital platform for **Atelier Élevé**, a creative studio for refined celebrations and bespoke styling, operating between Boston (USA) and Ikoyi, Lagos (Nigeria), serving Victoria Island, Lekki, Banana Island, and surrounding areas.
 
-## ✨ Overview
+## Overview
 
-Élevé Curates is a high-end event planning company specializing in:
+Atelier Élevé focuses on:
 
-* Luxury weddings
-* Private celebrations
-* Corporate events
-* Bespoke styling and cultural detailing
+* Weddings and signature celebrations
+* Event planning and coordination
+* Event design and styling
+* Bespoke personal styling and cultural detail
 
-This project represents the brand’s digital experience — designed to feel like a luxury editorial publication while seamlessly converting visitors into high-value client inquiries.
+This project is the brand’s digital experience — designed to feel calm, intentional, and editorial while guiding visitors toward inquiry.
 
----
+## Goals
 
-## 🎯 Goals
+* A premium, minimal web experience
+* Clear paths to inquiry and intake
+* A scalable foundation for client tools and automation
 
-* Create a premium, editorial web experience inspired by luxury fashion and wedding brands
-* Establish a strong digital presence to attract high-end clientele
-* Provide a seamless inquiry flow for prospective clients
-* Build a scalable foundation for future client management and automation
+## Tech Stack
 
----
-
-## 🛠️ Tech Stack (V1)
-
-* **Next.js 14 (App Router)**
+* **Next.js** (App Router)
 * **TypeScript**
 * **Tailwind CSS**
+* **Clerk** (authentication)
+* **Neon** (PostgreSQL, where configured)
+* **Resend** (transactional email, where configured)
 
----
+## Design Principles
 
-## 🎨 Design Principles
+* Generous whitespace and strong hierarchy
+* Neutral palette (ivory, champagne, ink, soft gold)
+* Serif display type with clean sans-serif body copy
+* Subtle motion and restrained ornament
 
-* Minimal, elegant, and high-end
-* Neutral tones (ivory, champagne, black)
-* Editorial layout inspired by Vogue Weddings
-* Warm, emotional storytelling (not cold corporate design)
-* Strong visual hierarchy with immersive imagery
-* Subtle animations and refined interactions
+## Brand positioning
 
----
-
-## 🌍 Brand Positioning
-
-Élevé Curates operates between:
+Atelier Élevé serves clients in:
 
 * Boston, USA
-* Ikoyi, Lagos (serving Victoria Island, Lekki, Banana Island)
+* Ikoyi, Lagos (and Victoria Island, Lekki, Banana Island)
 
-Blending Nigerian cultural elegance with modern global luxury.
+Blending cultural depth with a refined, contemporary editorial tone.
 
----
+## Features
 
-## 🚀 Features (V1)
+* Editorial homepage with hero, services, and CTAs
+* **Start Your Journey** inquiry flow (`/start-journey`)
+* Atelier bespoke intake (`/atelier-eleve/intake`)
+* Journal / blog content
+* Responsive, mobile-first layout
 
-* Luxury editorial homepage with hero section
-* “Start Your Journey” dedicated inquiry experience
-* Structured service offerings
-* Portfolio gallery (editorial grid layout)
-* Responsive, mobile-first design
-* Clean and scalable component architecture
+## Future enhancements
 
----
+* Deeper client portal and contract workflows
+* Inquiry management and notifications
+* AI assistant (RAG-based FAQ context)
 
-## 🔮 Future Enhancements (V2)
+## Status
 
-* Authentication (Clerk)
-* Database integration (AWS RDS)
-* Client portal dashboard
-* Inquiry management system
-* AI-powered assistant (RAG-based)
+Active development focused on brand experience and conversion.
 
----
+## Philosophy
 
-## 📌 Status
+Intention, stewardship, and quiet confidence — reflected in both the events we design and the digital experience we present.
 
-🚧 Version 1 — In Development
-Focused on frontend experience and inquiry conversion.
+## Contact
 
----
-
-## 🤍 Philosophy
-
-This is not just a website.
-
-It is a curated digital experience designed to reflect:
-
-* intention
-* cultural depth
-* quiet luxury
-
----
-
-## 📬 Contact
-
-For inquiries and collaborations:
-Élevé Curates
+**Atelier Élevé**  
 Boston | Ikoyi, Lagos
 
 ---
-
-## 🕊️ Note
-
-This project is part of the foundational build for a luxury, transatlantic event planning brand — combining design, technology, and storytelling to create meaningful experiences.
-
 
 ## Setup
 
@@ -115,31 +81,24 @@ This project is part of the foundational build for a luxury, transatlantic event
 npm install
 ```
 
-2. Create environment variables:
+2. Create environment variables (see `.env.example` if present in your branch).
 
-```bash
-cp .env.example .env.local
-```
+3. Add Clerk, database, and Resend values as needed for local features.
 
-3. Add real Clerk and PostgreSQL values in `.env.local`.
-
-4. Generate Prisma client and run migration:
-
-```bash
-npm run prisma:generate
-npm run prisma:migrate
-```
-
-5. Run locally:
+4. Run locally:
 
 ```bash
 npm run dev
 ```
 
-## Key Routes
+## Key routes
 
-- `/` - Editorial brand website
-- `/start-journey` - Database-backed inquiry form
-- `/portal` - Authenticated client dashboard
-- `/api/inquiries` - Inquiry API endpoint
-- `/api/rag` - Retrieval endpoint for FAQ context
+- `/` — Homepage
+- `/start-journey` — Inquiry form
+- `/inquire` — Inquiry entry and links
+- `/atelier-eleve/intake` — Bespoke styling intake
+- `/blog` — Journal index
+- `/portal` — Authenticated client area (Clerk)
+- `/api/inquiry` — Inquiry API
+- `/api/maison-eleve-intake` — Atelier intake API
+- `/api/rag` — FAQ retrieval for assistant context

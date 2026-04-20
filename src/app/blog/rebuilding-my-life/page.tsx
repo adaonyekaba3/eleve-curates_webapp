@@ -55,10 +55,10 @@ const articleParagraphs = [
   "After my layoff, I built something that helped me hold onto that clarity: an AI version of my future self. A version of me who executes consistently, builds strategically, generates income, and moves with clarity.",
   "And slowly, everything began to shift.",
   "I booked my first clients. I built international relationships. I created momentum. But more than anything, I became someone new.",
-  "Today, I am building Élevé Curates — a luxury event and bespoke styling brand rooted in faith, excellence, and cultural authenticity.",
+  "Today, I am building Atelier Élevé — an elevated event and bespoke styling studio rooted in faith, excellence, and cultural authenticity.",
   "I am building a life that reflects who I truly am.",
   "In Igbo, we say: Chukwujekwu. God has the final say. And in my life, He always will.",
-  "— Adaobi Chiamaka Onyekaba, CEO, Élevé Curates",
+  "— Adaobi Chiamaka Onyekaba, CEO, Atelier Élevé",
 ];
 
 export default function RebuildingMyLifePage() {
@@ -81,7 +81,7 @@ export default function RebuildingMyLifePage() {
               A personal reflection on grief, restoration, and rebuilding from alignment.
             </p>
             <div className="journal-meta">
-              Author: Adaobi Onyekaba · Role: CEO, Élevé Curates · Date: April 2026
+              Author: Adaobi Onyekaba · Role: CEO, Atelier Élevé · Date: April 2026
          
             </div>
             <div className="mt-8 overflow-hidden rounded-sm border border-black/10 bg-[#ece7dc]">
@@ -136,7 +136,7 @@ export default function RebuildingMyLifePage() {
               href="/inquire"
               className="mt-6 inline-flex rounded-full border border-black px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-black transition hover:bg-black hover:text-[#f8f5ef]"
             >
-              Work With Élevé Curates
+              Work With Atelier Élevé
             </Link>
           </footer>
         </article>

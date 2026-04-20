@@ -3,9 +3,9 @@ import Link from "next/link";
 import { MaisonEleveIntakeForm } from "@/components/maison-eleve-intake-form";
 
 export const metadata: Metadata = {
-  title: "Atelier Élevé – Bespoke Styling & Tailoring Intake | Élevé Curates",
+  title: "Atelier Élevé – Bespoke Styling & Tailoring Intake",
   description:
-    "Begin your bespoke styling and tailoring journey with Atelier Élevé, a house of Élevé Curates.",
+    "Begin your bespoke styling and tailoring journey with Atelier Élevé.",
 };
 
 export default function AtelierEleveIntakePage() {
@@ -27,7 +27,7 @@ export default function AtelierEleveIntakePage() {
         <MaisonEleveIntakeForm />
         <p className="mt-16 text-center text-[11px] uppercase tracking-[0.2em] text-muted">
           <Link href="/" className="transition hover:text-ink">
-            ← Back to Élevé Curates
+            ← Back to Atelier Élevé
           </Link>
         </p>
       </div>

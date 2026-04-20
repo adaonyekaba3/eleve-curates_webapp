@@ -100,7 +100,7 @@ export default function FutureCeoGptPage() {
               A practical guide to creating an AI system that sounds like you and helps you execute.
             </p>
             <div className="journal-meta">
-              Author: Adaobi Chiamaka Onyekaba · Role: CEO, Élevé Curates · Date: April 2026
+              Author: Adaobi Chiamaka Onyekaba · Role: CEO, Atelier Élevé · Date: April 2026
             </div>
           </header>
 

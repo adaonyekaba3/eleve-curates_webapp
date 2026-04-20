@@ -180,7 +180,7 @@ export async function POST(request: Request) {
         ].join("");
 
         const sendResult = await resend.emails.send({
-          from: "Élevé Curates <no-reply@elevevents.com>",
+          from: "Atelier Élevé <no-reply@elevevents.com>",
           to: "eleve.events.ai@gmail.com",
           subject: "Atelier Élevé — New bespoke intake",
           attachments:
@@ -195,7 +195,7 @@ export async function POST(request: Request) {
             <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#b69c78;margin:0 0 8px;">Atelier Élevé</p>
             <h1 style="font-size:22px;margin:0 0 20px;border-bottom:1px solid #e5dcd0;padding-bottom:14px;">Bespoke intake submission</h1>
             <table style="width:100%;border-collapse:collapse;font-size:15px;line-height:1.55;">${rows}</table>
-            <p style="margin-top:28px;font-size:12px;color:#6b6258;">Submitted via maison-eleve intake on Élevé Curates.</p>
+            <p style="margin-top:28px;font-size:12px;color:#6b6258;">Submitted via Atelier Élevé bespoke intake.</p>
           </div>`,
         });
         if (sendResult.error) {

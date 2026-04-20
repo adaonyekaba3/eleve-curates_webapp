@@ -7,7 +7,7 @@ type FaqDocument = {
 const faqDocs: FaqDocument[] = [
   {
     id: "booking",
-    title: "How to book Élevé Curates",
+    title: "How to book Atelier Élevé",
     content:
       "Submit the Start Your Journey inquiry form with event details, location, and budget. We review all applications and respond within 3 to 5 business days.",
   },

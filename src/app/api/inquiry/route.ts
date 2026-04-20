@@ -46,9 +46,9 @@ export async function POST(request: Request) {
     // 2. Send email notification (non-blocking — do not fail the request)
     try {
       await resend.emails.send({
-        from: "Élevé Curates <no-reply@elevevents.com>",
+        from: "Atelier Élevé <no-reply@elevevents.com>",
         to: "eleve.events.ai@gmail.com",
-        subject: "New Inquiry — Élevé Curates",
+        subject: "New Inquiry — Atelier Élevé",
         html: `
           <div style="font-family: Georgia, serif; color: #1a1a1a; max-width: 600px; margin: 0 auto; padding: 24px;">
             <h2 style="font-size: 20px; margin-bottom: 24px; border-bottom: 1px solid #e5e5e5; padding-bottom: 12px;">
@@ -67,7 +67,7 @@ export async function POST(request: Request) {
               <tr><td style="padding: 6px 12px 6px 0; font-weight: bold; vertical-align: top;">Description</td><td style="padding: 6px 0;">${eventDescription}</td></tr>
             </table>
             <p style="margin-top: 24px; font-size: 13px; color: #888;">
-              This inquiry was submitted via the Élevé Curates website.
+              This inquiry was submitted via the Atelier Élevé website.
             </p>
           </div>
         `,

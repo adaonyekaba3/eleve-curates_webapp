@@ -7,7 +7,7 @@ export default function BlogIndexPage() {
         <p className="journal-label">Journal</p>
         <h1 className="journal-title">Stories of rebuilding, alignment, and vision.</h1>
         <p className="journal-subtitle">
-          Personal essays and practical systems from Élevé Curates.
+          Personal essays and practical systems from Atelier Élevé.
         </p>
 
         <div className="journal-divider" />
