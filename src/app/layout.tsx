@@ -33,8 +33,8 @@ function getMetadataBaseUrl() {
 export const metadata: Metadata = {
   metadataBase: getMetadataBaseUrl(),
   icons: {
-    icon: [{ url: "/images/atelier-eleve-hero-mark.png", type: "image/png" }],
-    apple: [{ url: "/images/atelier-eleve-hero-mark.png", type: "image/png" }],
+    icon: [{ url: "/images/atelier-eleve-logo-white-bg.png", type: "image/png" }],
+    apple: [{ url: "/images/atelier-eleve-logo-white-bg.png", type: "image/png" }],
   },
   title: "Atelier Élevé | Refined Event Studio",
   description:
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "Atelier Élevé",
     images: [
       {
-        url: "/images/eleve-logo-gold.png",
+        url: "/images/atelier-eleve-og-white-bg.png",
         width: 1200,
         height: 630,
         alt: "Atelier Élevé Logo",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     title: "Atelier Élevé | Refined Event Studio",
     description:
       "Atelier Élevé curates refined celebrations through thoughtful planning, design, and styling.",
-    images: ["/images/eleve-logo-gold.png"],
+    images: ["/images/atelier-eleve-og-white-bg.png"],
   },
 };
 
