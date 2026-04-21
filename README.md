@@ -91,6 +91,34 @@ npm install
 npm run dev
 ```
 
+## Domain Migration (`www.atelier-eleve.com`)
+
+For clean production canonical URLs, set:
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://www.atelier-eleve.com
+```
+
+in your Vercel **Production** environment variables.
+
+Then complete platform steps:
+
+- In Vercel project **Settings → Domains**, add:
+  - `www.atelier-eleve.com`
+  - `atelier-eleve.com`
+- Set `www.atelier-eleve.com` as primary (if you want `www` canonical).
+- Add/keep `elevevents.com` and configure a **308 redirect** to:
+  - `https://www.atelier-eleve.com/:splat`
+- In Clerk dashboard, add:
+  - `https://www.atelier-eleve.com`
+  - `https://atelier-eleve.com` (if used)
+  - keep `elevevents.com` entries until redirects are fully validated.
+
+Notes:
+
+- Homepage CTA links use relative paths (`/inquire`, `/atelier-eleve/intake`) to remain domain-agnostic.
+- Transactional email sender is intentionally still `no-reply@elevevents.com` until the new domain is verified in Resend.
+
 ## Key routes
 
 - `/` — Homepage

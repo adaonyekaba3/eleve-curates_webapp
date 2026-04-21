@@ -18,8 +18,10 @@ const serif = Cormorant_Garamond({
   weight: ["400", "500", "600", "700"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.atelier-eleve.com";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://elevevents.com"),
+  metadataBase: new URL(siteUrl),
   icons: {
     icon: [{ url: "/images/atelier-eleve-hero-mark.png", type: "image/png" }],
     apple: [{ url: "/images/atelier-eleve-hero-mark.png", type: "image/png" }],
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
     title: "Atelier Élevé | Refined Event Studio",
     description:
       "Atelier Élevé curates refined celebrations through thoughtful planning, design, and styling.",
-    url: "https://elevevents.com",
+    url: "/",
     siteName: "Atelier Élevé",
     images: [
       {

@@ -102,7 +102,7 @@ const services: Service[] = [
     bestFor: "Clients who want a cohesive and refined personal presentation",
     cta: {
       label: "Inquire for Styling",
-      href: "https://elevevents.com/atelier-eleve/intake",
+      href: "/atelier-eleve/intake",
     },
   },
 ];
@@ -133,7 +133,7 @@ export default function Home() {
           </p>
           <div className="mt-10">
             <Link
-              href="https://elevevents.com/inquire"
+              href="/inquire"
               className="editorial-button-primary"
             >
               Start Your Journey
@@ -220,7 +220,7 @@ export default function Home() {
         </p>
         <div className="mt-8">
           <Link
-            href="https://elevevents.com/inquire"
+            href="/inquire"
             className="editorial-button-primary"
           >
             Start Your Journey
