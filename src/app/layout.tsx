@@ -18,10 +18,20 @@ const serif = Cormorant_Garamond({
   weight: ["400", "500", "600", "700"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.atelier-eleve.com";
+const DEFAULT_SITE_URL = "https://www.atelier-eleve.com";
+
+function getMetadataBaseUrl() {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL;
+  if (!raw) return new URL(DEFAULT_SITE_URL);
+  try {
+    return new URL(raw);
+  } catch {
+    return new URL(DEFAULT_SITE_URL);
+  }
+}
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: getMetadataBaseUrl(),
   icons: {
     icon: [{ url: "/images/atelier-eleve-hero-mark.png", type: "image/png" }],
     apple: [{ url: "/images/atelier-eleve-hero-mark.png", type: "image/png" }],
