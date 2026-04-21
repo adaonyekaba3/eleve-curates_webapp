@@ -22,6 +22,8 @@ const config: Config = {
       backgroundImage: {
         "hero-overlay":
           "linear-gradient(180deg, rgba(25,18,13,0.28) 0%, rgba(25,18,13,0.56) 100%)",
+        "hero-overlay-ade":
+          "linear-gradient(180deg, rgba(18,14,11,0.42) 0%, rgba(18,14,11,0.58) 45%, rgba(18,14,11,0.72) 100%)",
       },
     },
   },

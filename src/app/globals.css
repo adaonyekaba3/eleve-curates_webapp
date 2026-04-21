@@ -59,9 +59,100 @@ body {
   @apply mt-1 block text-[12px] uppercase tracking-[0.12em] text-ink;
 }
 
-/* Hero: large circular mark, low contrast, anchored so copy stays crisp */
-.hero-watermark-mark {
-  @apply absolute -bottom-[18%] -right-[14%] w-[min(88vw,420px)] opacity-[0.075] sm:-bottom-[12%] sm:-right-[10%] sm:w-[min(72vw,460px)] md:-bottom-[8%] md:-right-[6%] md:w-[min(52vw,540px)] md:opacity-[0.1];
+/* Full-bleed homepage hero: logo lockup above headline */
+.hero-home-logo {
+  @apply mx-auto w-[min(88vw,380px)] shrink-0 sm:w-[min(72vw,440px)] md:w-[min(56vw,520px)];
+}
+
+/* Splash intro (z above fixed header) */
+.home-splash-layer {
+  @apply fixed inset-0 z-[100] flex items-center justify-center bg-ivory;
+  animation: homeSplashLayerIn 420ms ease-out forwards;
+}
+
+.home-splash-layer--exit {
+  animation: homeSplashLayerOut 520ms ease-in forwards;
+}
+
+.home-splash-logo-wrap {
+  @apply flex items-center justify-center will-change-transform;
+  opacity: 0;
+  transform: scale(0.94) translateY(8px);
+}
+
+.home-splash-logo-wrap--in {
+  animation: homeSplashLogoIn 720ms ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-splash-layer {
+    animation: homeSplashLayerInReduced 160ms ease-out forwards;
+  }
+
+  .home-splash-layer--exit {
+    animation: homeSplashLayerOutReduced 160ms ease-in forwards;
+  }
+
+  .home-splash-logo-wrap--in {
+    animation: homeSplashLogoInReduced 160ms ease-out forwards;
+  }
+}
+
+@keyframes homeSplashLayerIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes homeSplashLayerOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes homeSplashLogoIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes homeSplashLayerInReduced {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes homeSplashLayerOutReduced {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes homeSplashLogoInReduced {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .fade-in {
