@@ -59,9 +59,9 @@ body {
   @apply mt-1 block text-[12px] uppercase tracking-[0.12em] text-ink;
 }
 
-/* Full-bleed homepage hero: logo lockup above headline */
+/* Homepage hero: centered logo (70% of prior max width = 30% smaller) */
 .hero-home-logo {
-  @apply mx-auto w-[min(88vw,380px)] shrink-0 sm:w-[min(72vw,440px)] md:w-[min(56vw,520px)];
+  @apply mx-auto w-[min(88vw,266px)] shrink-0 sm:w-[min(72vw,308px)] md:w-[min(56vw,364px)];
 }
 
 /* Splash intro (z above fixed header) */

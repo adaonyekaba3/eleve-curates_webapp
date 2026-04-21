@@ -111,35 +111,23 @@ export default function Home() {
   return (
     <main>
       <HomeSplash />
-      <section className="relative min-h-[calc(100dvh-5rem)] overflow-hidden border-b border-black/10">
-        <Image
-          src="/images/hero-atelier.jpg"
-          alt=""
-          fill
-          className="object-cover"
-          sizes="100vw"
-          priority
-        />
-        <div
-          className="absolute inset-0 z-[1] bg-hero-overlay-ade"
-          aria-hidden
-        />
-        <div className="editorial-container relative z-10 flex min-h-[calc(100dvh-5rem)] flex-col items-center justify-center section-space text-center text-ivory">
+      <section className="relative min-h-[calc(100dvh-5rem)] overflow-hidden border-b border-black/10 bg-gradient-to-b from-[#f7f1e7] to-[#f4ede1]">
+        <div className="editorial-container relative z-10 flex min-h-[calc(100dvh-5rem)] flex-col items-center justify-center section-space text-center">
           <div className="hero-home-logo mb-5 md:mb-7">
             <Image
               src="/images/atelier-eleve-hero-mark.png"
               alt="Atelier Élevé"
-              width={640}
-              height={640}
-              sizes="(max-width: 768px) 88vw, 520px"
-              className="h-auto w-full object-contain drop-shadow-[0_6px_36px_rgba(0,0,0,0.45)]"
+              width={448}
+              height={448}
+              sizes="(max-width: 768px) 62vw, 364px"
+              className="h-auto w-full object-contain drop-shadow-[0_4px_24px_rgba(24,22,20,0.12)]"
             />
           </div>
-          <p className="eyebrow text-ivory/95">Atelier Élevé</p>
-          <h1 className="editorial-heading mt-5 text-[2.9rem] text-ivory md:mt-6 md:text-7xl">
+          <p className="eyebrow">Atelier Élevé</p>
+          <h1 className="editorial-heading mt-5 text-[2.9rem] text-ink md:mt-6 md:text-7xl">
             Every Moment, Elevated.
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-[15px] leading-7 text-ivory/88 md:text-[17px] md:leading-8">
+          <p className="section-lead mx-auto mt-6 max-w-2xl">
             Atelier Élevé curates refined celebrations through thoughtful planning,
             design, and styling.
           </p>
