@@ -15,7 +15,7 @@ const links = [
   { href: "/#portfolio", label: "Portfolio" },
   { href: "/#about", label: "About" },
   { href: "/blog", label: "Journal" },
-  { href: "/inquire", label: "Inquire" },
+  { href: "https://www.atelier-eleve.com/start-journey", label: "Inquire" },
   { href: "/atelier-eleve/intake", label: "Atelier Élevé" },
 ];
 

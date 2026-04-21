@@ -28,10 +28,10 @@ export default function Home() {
           </p>
           <div className="mt-10">
             <Link
-              href="/inquire"
+              href="/services"
               className="editorial-button-primary"
             >
-              Start Your Journey
+              Explore Services
             </Link>
           </div>
         </div>
